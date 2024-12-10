@@ -1,0 +1,59 @@
+.passenger-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.passenger-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.passenger-form input,
+.passenger-form select,
+.passenger-form button {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.success {
+    color: green;
+    text-align: center;
+}
+
+.passenger-list {
+    margin-top: 20px;
+}
+
+.passenger-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.passenger-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    cursor: pointer;
+}

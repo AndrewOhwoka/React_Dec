@@ -1,0 +1,80 @@
+/* airport.css */
+.airport-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.airport-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.airport-form input {
+    margin: 5px;
+    padding: 10px;
+    width: 250px;
+}
+
+.airport-form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.airport-list {
+    margin-top: 20px;
+}
+
+.airport-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.airport-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.view-aircraft-button,
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.view-aircraft-button {
+    background-color: #008CBA;
+}
+
+.edit-button {
+    background-color: #FF9800;
+}
+
+.delete-button {
+    background-color: #f44336;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
