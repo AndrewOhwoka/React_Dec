@@ -1,10 +1,14 @@
 .passenger-container {
     padding: 20px;
     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
+    color: #333;
 }
 
 .passenger-form {
@@ -12,6 +16,10 @@ h1 {
     flex-direction: column;
     width: 300px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .passenger-form input,
@@ -19,16 +27,39 @@ h1 {
 .passenger-form button {
     margin-bottom: 10px;
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.passenger-form input:focus,
+.passenger-form select:focus {
+    border-color: #4CAF50;
+}
+
+.passenger-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.passenger-form button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 .error {
     color: red;
     text-align: center;
+    font-weight: bold;
 }
 
 .success {
     color: green;
     text-align: center;
+    font-weight: bold;
 }
 
 .passenger-list {
@@ -45,6 +76,14 @@ h1 {
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.passenger-list li:hover {
+    transform: scale(1.02);
 }
 
 .actions {
@@ -56,4 +95,26 @@ h1 {
 .delete-button {
     padding: 5px 10px;
     cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.edit-button {
+    background-color: #FF9800;
+}
+
+.edit-button:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #f44336;
+}
+
+.delete-button:hover {
+    background-color: #e33d2e;
+    transform: scale(1.05);
 }
