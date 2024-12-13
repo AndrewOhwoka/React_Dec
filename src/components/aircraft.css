@@ -2,6 +2,9 @@
 .aircraft-container {
     padding: 20px;
     text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .aircraft-form {
@@ -9,12 +12,23 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .aircraft-form input {
     margin: 5px;
     padding: 10px;
     width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.aircraft-form input:focus {
+    border-color: #4CAF50;
 }
 
 .aircraft-form button {
@@ -24,6 +38,13 @@
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.aircraft-form button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 .aircraft-list {
@@ -42,6 +63,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.aircraft-list li:hover {
+    transform: scale(1.02);
 }
 
 .actions {
@@ -55,21 +84,46 @@
 .delete-button {
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.view-button {
+    background-color: #4CAF50;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 .view-passengers-button {
     background-color: #008CBA;
 }
 
+.view-passengers-button:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
+}
+
 .edit-button {
     background-color: #FF9800;
 }
 
+.edit-button:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
 .delete-button {
     background-color: #f44336;
+}
+
+.delete-button:hover {
+    background-color: #e33d2e;
+    transform: scale(1.05);
 }
 
 .error {
