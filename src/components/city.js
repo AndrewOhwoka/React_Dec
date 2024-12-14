@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./city.css"; // Importing the CSS file
+import "./city.css"; 
 
 const City = () => {
   const [cityList, setCityList] = useState([]);
@@ -16,7 +16,7 @@ const City = () => {
 
   const apiUrl = "http://localhost:8084/api/cities";
 
-  // Fetch all cities
+  
   const fetchCities = async () => {
     try {
       const response = await axios.get(apiUrl);
@@ -30,12 +30,12 @@ const City = () => {
     fetchCities();
   }, []);
 
-  // Handle form submission for creating or updating a city
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isEditing) {
-        // Update existing city
+        
         const response = await axios.put(
           `${apiUrl}/${currentCity.id}`,
           formData
@@ -47,7 +47,7 @@ const City = () => {
         );
         setSuccess("City updated successfully!");
       } else {
-        // Create new city
+        
         const response = await axios.post(apiUrl, formData);
         setCityList([...cityList, response.data]);
         setSuccess("City added successfully!");
@@ -60,7 +60,7 @@ const City = () => {
     }
   };
 
-  // Handle edit button click
+  
   const handleEdit = (city) => {
     setFormData({
       name: city.name,
@@ -71,7 +71,7 @@ const City = () => {
     setIsEditing(true);
   };
 
-  // Handle delete city by ID
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${apiUrl}/${id}`);

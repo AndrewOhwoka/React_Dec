@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./airport.css"; // Importing the CSS file for styling
+import "./airport.css"; 
 
 const Airport = () => {
   const [airportList, setAirportList] = useState([]);
-  const [cityList, setCityList] = useState([]); // State to hold the list of cities
+  const [cityList, setCityList] = useState([]); 
   const [formData, setFormData] = useState({
     name: "",
     code: "",
-    city: "", // This will hold the selected city ID
+    city: "", 
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState("");
@@ -16,9 +16,9 @@ const Airport = () => {
   const [currentAirport, setCurrentAirport] = useState(null);
 
   const apiUrl = "http://localhost:8084/api/airports";
-  const cityApiUrl = "http://localhost:8084/api/cities"; // URL to fetch cities
+  const cityApiUrl = "http://localhost:8084/api/cities"; 
 
-  // Fetch all airports data
+  
   const fetchAirports = async () => {
     try {
       const response = await axios.get(apiUrl);
@@ -28,11 +28,11 @@ const Airport = () => {
     }
   };
 
-  // Fetch all cities data
+  
   const fetchCities = async () => {
     try {
       const response = await axios.get(cityApiUrl);
-      setCityList(response.data); // Set the list of cities
+      setCityList(response.data); 
     } catch (err) {
       setError(err.message || "Error fetching city data.");
     }
@@ -40,15 +40,15 @@ const Airport = () => {
 
   useEffect(() => {
     fetchAirports();
-    fetchCities(); // Fetch cities when the component mounts
+    fetchCities(); 
   }, []);
 
-  // Handle form submission for creating or updating an airport
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isEditing) {
-        // Update existing airport
+        
         const response = await axios.put(
           `${apiUrl}/${currentAirport.id}`,
           formData
@@ -60,7 +60,7 @@ const Airport = () => {
         );
         setSuccess("Airport updated successfully!");
       } else {
-        // Create new airport
+        
         const response = await axios.post(apiUrl, formData);
         setAirportList([...airportList, response.data]);
         setSuccess("Airport added successfully!");
@@ -73,18 +73,18 @@ const Airport = () => {
     }
   };
 
-  // Handle edit button click
+  
   const handleEdit = (airport) => {
     setFormData({
       name: airport.name,
       code: airport.code,
-      city: airport.city ? airport.city.id : "", // Set city as the ID of the selected city
+      city: airport.city ? airport.city.id : "", 
     });
     setCurrentAirport(airport);
     setIsEditing(true);
   };
 
-  // Handle delete airport by ID
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${apiUrl}/${id}`);
@@ -95,7 +95,7 @@ const Airport = () => {
     }
   };
 
-  // Handle viewing aircraft associated with an airport
+  
   const handleViewAircraft = async (airportId) => {
     try {
       const response = await axios.get(`${apiUrl}/${airportId}/aircraft`);
@@ -104,7 +104,7 @@ const Airport = () => {
       if (aircraftList.length === 0) {
         alert("No aircraft found for this airport.");
       } else {
-        // Show aircraft in a formatted way
+        
         alert(
           `Aircraft associated with this airport:\n${aircraftList
             .map((aircraft) => aircraft.type)

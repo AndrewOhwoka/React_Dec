@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./aircraft.css"; // CSS file for styling
+import "./aircraft.css"; 
 
 const Aircraft = () => {
   const [aircraftList, setAircraftList] = useState([]);
