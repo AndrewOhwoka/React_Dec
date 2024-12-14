@@ -13,6 +13,7 @@ const City = () => {
   const [success, setSuccess] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentCity, setCurrentCity] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const apiUrl = "http://localhost:8084/api/cities";
 
@@ -23,6 +24,8 @@ const City = () => {
       setCityList(response.data);
     } catch (err) {
       setError(err.message || "Error fetching city data.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -121,7 +124,9 @@ const City = () => {
 
       <div className="city-list">
         <h2>Cities List</h2>
-        {cityList.length === 0 ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : cityList.length === 0 ? (
           <p>No cities found.</p>
         ) : (
           <ul>
