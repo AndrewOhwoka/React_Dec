@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // For navigation
-import "./home.css"; // Import the CSS file
+import { useNavigate } from "react-router-dom";
+import "./home.css"; 
 
 const Home = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // React Router hook for navigation
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     axios
