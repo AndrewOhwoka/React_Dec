@@ -13,6 +13,7 @@ const Aircraft = () => {
   const [success, setSuccess] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentAircraft, setCurrentAircraft] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const apiUrl = "http://localhost:8084/api/aircraft";
 
@@ -23,6 +24,8 @@ const Aircraft = () => {
       setAircraftList(response.data);
     } catch (err) {
       setError(err.message || "Error fetching aircraft data.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -151,7 +154,9 @@ const Aircraft = () => {
 
       <div className="aircraft-list">
         <h2>Aircraft List</h2>
-        {aircraftList.length === 0 ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : aircraftList.length === 0 ? (
           <p>No aircraft found.</p>
         ) : (
           <ul>
