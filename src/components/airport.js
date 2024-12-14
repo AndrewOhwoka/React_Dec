@@ -14,6 +14,7 @@ const Airport = () => {
   const [success, setSuccess] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentAirport, setCurrentAirport] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const apiUrl = "http://localhost:8084/api/airports";
   const cityApiUrl = "http://localhost:8084/api/cities"; 
@@ -25,6 +26,8 @@ const Airport = () => {
       setAirportList(response.data);
     } catch (err) {
       setError(err.message || "Error fetching airport data.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -157,7 +160,9 @@ const Airport = () => {
 
       <div className="airport-list">
         <h2>Airports List</h2>
-        {airportList.length === 0 ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : airportList.length === 0 ? (
           <p>No airports found.</p>
         ) : (
           <ul>
