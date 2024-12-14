@@ -14,12 +14,13 @@ const Passenger = () => {
   const [success, setSuccess] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentPassenger, setCurrentPassenger] = useState(null);
-  const [cities, setCities] = useState([]); // Assuming you have city data for the passenger's city
+  const [cities, setCities] = useState([]); 
 
   const apiUrl = "http://localhost:8084/api/passengers";
-  const cityApiUrl = "http://localhost:8084/api/cities"; // URL to fetch cities
+  const cityApiUrl = "http://localhost:8084/api/cities"; 
 
-  // Fetch all passengers
+  
+  
   const fetchPassengers = async () => {
     try {
       const response = await axios.get(apiUrl);
@@ -29,7 +30,7 @@ const Passenger = () => {
     }
   };
 
-  // Fetch all cities for dropdown
+  
   const fetchCities = async () => {
     try {
       const response = await axios.get(cityApiUrl);
@@ -44,12 +45,12 @@ const Passenger = () => {
     fetchCities();
   }, []);
 
-  // Handle form submission for creating or updating a passenger
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isEditing) {
-        // Update existing passenger
+        
         const response = await axios.put(
           `${apiUrl}/${currentPassenger.id}`,
           formData
@@ -61,7 +62,7 @@ const Passenger = () => {
         );
         setSuccess("Passenger updated successfully!");
       } else {
-        // Create new passenger
+        
         const response = await axios.post(apiUrl, formData);
         setPassengerList([...passengerList, response.data]);
         setSuccess("Passenger added successfully!");
@@ -74,7 +75,7 @@ const Passenger = () => {
     }
   };
 
-  // Handle edit button click
+  
   const handleEdit = (passenger) => {
     setFormData({
       firstName: passenger.firstName,
@@ -86,7 +87,7 @@ const Passenger = () => {
     setIsEditing(true);
   };
 
-  // Handle delete passenger by ID
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${apiUrl}/${id}`);
